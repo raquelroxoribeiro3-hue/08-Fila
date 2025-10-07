@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -83,18 +84,37 @@ void insere()
 	{
 		return;
 	}
-
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
 	novo->prox = NULL;
+
+	if (inicio == NULL) {
+		inicio = novo;
+		fim = novo;
+	}
+	novo->prox = novo;
+	novo->prox = NULL;
+	fim->prox = novo;
+	fim = novo;
+	cout << "NUMERO " << novo->valor << " ADICIONADO " << endl;
+
+
 
 
 }
 
 void remove()
 {
+	if (inicio == NULL)
+	{
+		cout << "TEM NADA\n";
+		return;
+	}
+	cout << "Elemento: " << inicio->valor << " removido\n";
 
+	NO* aux = inicio;
+	inicio = inicio->prox;
+	free(aux);
 
 
 }
-
